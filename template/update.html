@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="jp">
+<meta charset="utf-8">
+<head>
+	<title>入力フォーム</title>
+	<link rel="stylesheet" type="text/css" href="./css/update_css.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<body>
+	<h1 class="update">入力フォーム</h1>
+<div class="form-inputdata">
+<form id="inputform" name="from-input" method="POST" enctype="multipart/form-data">
+	<table class="t_form" align="center">
+	<tbody>
+		<tr>
+			<th>飲食店名前</th>
+			<td><textarea class="w50p" type="text" name="Name" maxlength="50" required="required"><?=$name['Name']?></textarea></td>
+			
+			<th>広告記載のフラグ</th>
+			<td><input class="w50p" type="text" name="Flag" required="required" value="<?=$flag['Flag']?>"></td>
+		</tr>
+		<tr>
+			<th>住所</th>
+			<td><textarea class="w50p" type="text" name="Address" maxlength="50" required="required"><?=$address['Address']?></textarea></td>
+			
+			<th>緯度(Latitude)</th>
+			<td><input class="w50p" type="text" name="Lat" required="required" value="<?=$lat['Lat']?>"></td>
+		</tr>
+		<tr>
+			<th>電話番号</th>
+			<td><input class="w50p" type="text" name="Tel" maxlength="13" required="required" value="<?=$tel['Tel']?>"></td>
+
+			<th>経度(Longtitude)</th>
+			<td><input class="w50p" type="text" name="Log" required="required" value="<?=$log['Log']?>"></td>
+		</tr>
+		<tr>
+			<th>営業時間</th>
+			<td><textarea class="w50p" type="text" name="Time_work" maxlength="50" required="required"><?=$time_work['Time_work']?></textarea></td>
+
+			<th>自由テキスト１</th>
+			<td><textarea class="w50p" type="text" name="Text1" maxlength="50" required="required"><?=$text1['Text1']?></textarea>
+		</tr>
+		<tr>
+			<th>カテゴリー</th>
+			<td><input class="w50p" type="text" name="Caterogy" required="required" value="<?=$caterogy['Caterogy']?>"></td>
+
+			<th>自由テキスト２</th>
+			<td><textarea  class="w50p" type="text" name="Text2" maxlength="50" required="required"><?=$text2['Text2']?></textarea>
+		</tr>
+		<tr>
+			<th>記載年月日（日付）</th>
+			<td><input class="w50p" type="date" name="Date_Memory" required="required" value="<?=$date_Memory['Date_Memory']?>"></td>
+			
+			<th>自由テキスト３</th>
+			<td><textarea class="w50p" type="text" name="Text3" maxlength="50" required="required"><?=$text3['Text3']?></textarea> 
+		</tr>
+		<tr>
+			<th>記載</th>
+			<td><input class="w50p" type="text" name="Memory" required="required" value="<?=$memory['Memory']?>"></td>
+
+			<th>自由テキスト４</th>
+			<td><textarea class="w50p" type="text" name="Text4" maxlength="50" required="required"><?=$text4['Text4']?></textarea>
+		</tr>
+		<tr>
+			<th>QRコード用URL1</th>
+			<td><input id="qr1" class="w50p" type="text" name="QR_1" required="required" value="<?=$qrcode_1['QR_1']?>">
+				
+			</td>
+			
+			<th>自由テキスト５</th>
+			<td><textarea class="w50p" type="text" name="Text5" maxlength="50" required="required"><?=$text5['Text5']?></textarea> 		
+		</tr>
+		<tr>
+			<th>QRコード用URL2</th>
+			<td><input class="w50p" type="text" name="QR_2" required="required" value="<?=$qrcode_1['QR_1']?>"></td>
+
+			<th>画像ファイル（4枚）</th>
+			<td><input class="w50p" type="file" id="Image" name="Image[]" multiple="multiple"  accept="image/x-png,image/gif,image/jpeg" required="required" value="<?=$data['Image']?>" />
+			<p id="amount_file"></p>
+			</td>
+			<script type="text/javascript" src="./js/limit_image.js"></script>
+		</tr>
+		<tr>
+			
+			<th>紹介コメント</th>
+			<td colspan="3"><textarea class="w50p" type="text" name="Introduce_cm"　required="required"><?=$introduce_cm['Introduce_cm']?></textarea></td>
+		</tr>
+
+	</tbody>
+</table>
+<div class="button">
+<button class="back" id="back" type="button" onclick="returnpage()" >戻る</button>
+<button id="submit" type="submit" name="submit">入力へ</button>
+</div>
+</form>
+</div>
+<script type="text/javascript">
+    function returnpage() {
+    	var url = "./index.php";
+        location.href = url;
+    };
+</script>
+</body>
+</html>

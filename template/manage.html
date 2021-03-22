@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="jp">
+<meta charset="utf-8">
+<head>
+	<title>管理画面</title>
+	<link rel="stylesheet" type="text/css" href="./css/manage_css.css">
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+</head>
+<body>
+<section>
+  <h1>管理画面</h1>
+<div class="manage_table">
+  <form>
+    <input type="text" name="search" placeholder="飲食店名前を検索"><i>&#128269;</i>
+  </form>
+ <table cellpadding="0" cellspacing="0" border="0">
+  <thead>
+  <div class="tbl-header">
+        <tr>
+          <th class="name">飲食店名前</th>
+          <th class="address">住所</th>
+          <th class="tel">電話番号</th>
+          <th class="time_work">営業時間</th>
+          <th class="date">記載年月日（日付）</th>
+          <th class="memory">記載</th>
+          <!-- <th class="qr">QRコード用URL1</th>
+          <th class="qr">QRコード用URL2</th> -->
+          <th class="edit"></th>
+          <th class="delete"></th>
+          <th class="detail"></th>
+        </tr>
+        </thead>
+  </div>
+  <?foreach ($display_restaurant as $key => $value) {?>
+  
+  <tbody>
+  <div class="tbl-content">
+        <tr>
+          <td><?=$value["Name"]?></td>
+          <td><?=$value["Address"]?></td>
+          <td><?=$value["Tel"]?></td>
+          <td><?=$value["Time_work"]?></td>
+          <td><?=$value["Date_Memory"]?></td>
+          <td><?=$value["Memory"]?></td>
+          <!-- <td><?=$value["QR_1"]?></td>
+          <td><?=$value["QR_2"]?></td> -->
+          <td><button style="background-color: #31a700 ;color: white" onclick="window.open('update.php?id=<?=$value['ID']?>','_self')">変更</button></td>
+          <td><button style="background-color: red; color: white" onclick="deleteRestaurant(<?=$value['ID']?>)">削除</button></td>
+          <td><button style="background-color: #0088e8; color: white" onclick="window.open('restaurant.php?id=<?=$value['ID']?>','_self')">詳細</button></td>
+        </tr>
+  </div>
+  </tbody> 
+  <?}?>
+</table>
+<div class="pagination_center">
+<div class="pagination">
+  <!-- <a href="?page=<?=$i-1?>">&laquo;</a> -->
+  <?if($current > 3){?>
+  <?$first_page = 1;?>
+  <a class="" href="?page=<?=$first_page?>">一番</a>
+<?}?>
+
+  <?if($current > 1){?>
+  <?$prev_page =$current-1;?>
+  <a class="" href="?page=<?=$prev_page?>">&laquo;前へ</a>
+<?}?>
+
+<?for ($i = 1 ; $i <= $pages ; $i++){?>
+  <?if($i!=$current){?>
+    <?if($i>$current-3&&$i<$current+3){?>
+  <a href="?page=<?=$i?>"><?=$i?></a>
+  <?}?>
+  <?}else{?>
+  <a class="current_page" href="?page=<?=$i?>"><?=$i?></a>
+<?}?>
+<?}?>
+
+<?if($current < $pages - 1){?>
+  <?$next_page =$current + 1;?>
+  <a class="" href="?page=<?=$next_page?>">次へ&raquo;</a>
+<?}?>
+
+<?if($current < $pages - 2){?>
+  <?$last_page =$pages;?>
+  <a class="" href="?page=<?=$last_page?>">最後</a>
+<?}?>
+  <!-- <a href="#">&raquo;</a> -->
+</div>
+</div>
+</section>
+<div class="button">
+<button onclick="window.location.href='./index.php'">戻る</button>
+</div>
+</div>
+<script type="text/javascript" src="./js/delete.js"></script>
+</body>
+</html>

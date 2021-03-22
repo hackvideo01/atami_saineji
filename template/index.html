@@ -1,0 +1,82 @@
+<!DOCTYPE html >
+<meta charset="UTF-8">
+<html lang="jp">
+<head>
+	<title>熱海うまいもんMAP</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="./css/style_1.css">
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAgJKw8XTaw1XFwlPrxWMIz2lbDbYirViA&callback=initMap&libraries=&v=weekly&language=ja&region=JP" async>
+	</script>
+	<script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+</head>
+
+<body>
+  <button id="Manage" onclick="window.location.href='./manage.php'">Manage</button>
+  <button id="Update" onclick="window.location.href='./update.php'">Update</button>
+	<button id="goFS">Fullscreen</button>
+
+<div style="z-index: -1;" id="content" class="content">
+  <div id="header" class="header">
+  	<h1 class="title1"><span>塾海</span>うまいもんMAP</h1>
+  	<div class="local">
+  		<p>Shizuoka, Atami</p>
+  		<p id="date"></p>
+  	</div>
+  	<h1 class="hours" id="hours"></h1>
+  </div>
+  	<hr>
+  <div class="menu1">	
+  	<div class="container">
+    <div class="mySlides">
+      <img src="./images/img_mountains_wide.jpg" style="width:100%; height: 255px;">
+    </div>
+
+    <div class="mySlides">
+      <img src="./images/img_nature_wide.jpg" style="width:100%; height: 255px;">
+    </div>
+
+    <div class="mySlides">
+      <img src="./images/img_snow_wide.jpg" style="width:100%; height: 255px;">
+    </div>
+   
+      <a class="prev" onclick="plusSlides(-1)">❮</a>
+      <a class="next" onclick="plusSlides(1)">❯</a>
+
+    </div>
+    <div style='text-align: center;display: none;'>
+      <span class="dot" onclick='currentSlide(1)'></span>
+      <span class="dot" onclick='currentSlide(2)'></span>
+      <span class="dot" onclick='currentSlide(3)'></span>
+    </div>
+  </div>
+
+  	<hr>
+  <div class="menu2">
+  	<img style="width: 100%; height: 255px;" src="./images/baner1.png">
+  </div>
+
+  <div id="map" class="map">
+  	<p class="title2">塾海うまいもんMAP</p>
+  	
+  </div>
+      <img class="anime" style="" src="./images/anime1.png">
+  	  
+  <div class="news">
+  	<p class="news-tilte">市内ニュース</p>
+  	<p style="margin-top: 30px; background-color: white; padding: 10px; margin-bottom: 5px;border-radius: 8px;padding-top: 20px;
+      padding-bottom: 10px;padding-left: 35px;padding-right: 35px;">ニュース１</p>
+    <p style="margin-top: 30px; background-color: white; padding: 10px; margin-bottom: 5px;border-radius: 8px;padding-top: 20px;
+      padding-bottom: 10px;padding-left: 35px;padding-right: 35px; margin-left: 40px;">ニュース２</p>
+    <p style="margin-top: 30px; background-color: white; padding: 10px; margin-bottom: 5px;border-radius: 8px;padding-top: 20px;
+      padding-bottom: 10px;padding-left: 35px;padding-right: 35px; margin-left: 40px;">ニュース３</p>
+  </div>
+</div>
+
+  <!-- JS link in foder "js"  -->
+  <script type="text/javascript" src="./js/fullscreen.js"></script>
+  <script type="text/javascript" src="./js/date_hours.js"></script>
+  <script type="text/javascript" src="./js/slide_image.js"></script>
+  <script type="text/javascript" src="./js/maps.js"></script>
+</body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="jp">
+<meta charset="utf-8">
+<head>
+	<title>飲食店詳細</title>
+	<script type="text/javascript" src="./js/qrcode.js"></script>
+	<script type="text/javascript" src="./js/qrcode.min.js"></script>
+</head>
+<body onload=onReady() style="background-color: black;text-align: center;">
+<style type="text/css">
+	table , td, th {
+	border: 1px solid #595959;
+	border-collapse: collapse;
+	background-color: white;
+	margin: 20px auto 0;
+	width: 80%;
+	}
+	td, th {
+		padding: 3px;
+		width: 30px;
+		height: 30px;
+	}
+	th {
+		background: #ffffff;
+	}
+	.even {
+		background: #fbf8f0;
+	}
+	.odd {
+		background: #fefcf9;
+	}
+	button{
+		margin: 60px 100px 0;
+	}
+</style>
+<h1 style="text-align: center;color: white;">お店の名前</h1>
+<img style="margin: 0 auto; height: 400px;width: 80%;" src="./images/img_mountains_wide.jpg">
+<form>
+	<?foreach ($restaurant_detail as $key => $value) {?>
+	<textarea style="height: 180px;width: 80%; background-color: white;" disabled><?=$value['Introduce_cm']?></textarea>
+	<table>
+	<tbody>
+		<tr>
+			<th>住　所</th>
+			<td><?=$value['Address']?></td>
+		</tr>
+		<tr>
+			<th>営業時間</th>
+			<td><?=$value['Time_work']?></td>
+		</tr>
+		<tr>
+			<th>電話番号</th>
+			<td><?=$value['Tel']?></td>
+		</tr>
+		<tr>
+			<th>自由テキスト</th>
+			<td><?=$value['Text1']?></td>
+		</tr>
+		<tr>
+			<th>自由テキスト</th>
+			<td><?=$value['Text2']?></td>
+		</tr>
+	</tbody>
+</table>
+<div style="display: flex; margin-top: 100px;">
+	<input id="qrcode1" type="text" name="" hidden="hidden" value="<?=$value['QR_1']?>">
+	<div style="margin: 0 auto;" id="qr1"></div>
+	<input id="qrcode2" type="text" name="" hidden="hidden" value="<?=$value['QR_2']?>">
+	<div style="margin: 0 auto;" id="qr2"></div>
+</div>
+<?}?>
+</form>
+</body>
+</html>
